@@ -1,0 +1,23 @@
+{
+  "name": "tsAlgo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms/issues"
+  },
+  "homepage": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms#readme",
+  "dependencies": {
+    "typescript": "^4.0.2"
+  }
+}
