@@ -32,7 +32,7 @@ export class Stack<T> {
       throw new Error(`Stack underflow!! Cannot pop any item from stack`);
     } else {
       const popedItem = this.stack.pop();
-      console.log(`Item: ${popedItem} pushed in stack\nNow stack is:`);
+      console.log(`Item: ${popedItem} poped out of stack\nNow stack is:`);
       this.printStack();
     }
   }
@@ -43,7 +43,7 @@ export class Stack<T> {
 
   printStack(): void {
     this.stack.forEach((item, index) => {
-      console.log(`queue[${index}]: ${item}`);
+      console.log(`stack[${index}]: ${item}`);
     });
   }
 }
