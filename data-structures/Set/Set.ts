@@ -9,7 +9,7 @@ class Sets<T> {
     return this.set;
   }
 
-  add(item:T) {
+  add(item: T) {
     if (!this.has(item)) {
       this.set.push(item);
       return true
@@ -17,10 +17,10 @@ class Sets<T> {
     return false
   }
 
-  remove(item:T) {
+  remove(item: T) {
     if (this.has(item)) {
-      const index:number = this.set.indexOf(item);
-      this.set.splice(index,1);
+      const index: number = this.set.indexOf(item);
+      this.set.splice(index, 1);
       return true
     }
     return false
@@ -30,10 +30,45 @@ class Sets<T> {
     return this.set.length;
   }
 
-  union(otherSet:Sets<T>) {
+  union(otherSet: Sets<T>) {
     const union = new Sets<T>();
-    const firstVals = this.values();
-    const secondVals = otherSet.values();
-    
+    const firstSet = this.values();
+    const secondSet = otherSet.values();
+    firstSet.forEach((e) => {
+      union.add(e);
+    });
+    secondSet.forEach((e) => {
+      union.add(e);
+    });
+    return union;
+  }
+
+  intersection(otherSet: Sets<T>) {
+    const intersection = new Sets<T>();
+    const firstSet = this.values();
+    firstSet.forEach((e) => {
+      if (otherSet.has(e)) {
+        intersection.add(e);
+      }
+    });
+    return intersection;
+  }
+
+  difference(otherSet: Sets<T>) {
+    const difference = new Sets<T>();
+    const firstSet = this.values();
+    firstSet.forEach((e) => {
+      if (!otherSet.has(e)) {
+        difference.add(e);
+      }
+    });
+    return difference;
+  }
+
+  subset(otherSet: Sets<T>) {
+    const firstSet = this.values();
+    return firstSet.every((value) => {
+      return otherSet.has(value);
+    });
   }
 }
