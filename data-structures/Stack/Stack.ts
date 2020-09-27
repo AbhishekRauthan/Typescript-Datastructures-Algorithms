@@ -3,20 +3,34 @@ export default class Stack<T> {
   private length: number;
   private readonly maxLength: number;
 
-  constructor(len: number) {
+  /**
+   * Intialize the stack with optional length
+   * @param len if undifined maxLength is set to 10
+   */
+  constructor(len?: number) {
     this.length = 0;
-    this.maxLength = len;
+    this.maxLength = len ? len : 10;
     this.stack = new Array<T>(this.maxLength);
   }
 
+  /**
+   * Returns true if stack is empty, else returns false
+   */
   isEmpty(): boolean {
     return this.length === 0;
   }
 
+  /**
+   * Returns true if stack is full, else returns false
+   */
   isFull(): boolean {
     return this.length === this.maxLength;
   }
 
+  /**
+   * Returns index if pushing item to stack is successfull, else returns false
+   * @param newItem item to be pushed of type T
+   */
   push(newItem: T): false | number {
     if (this.isFull()) {
       return false;
@@ -26,6 +40,9 @@ export default class Stack<T> {
     }
   }
 
+  /**
+   * Returns the poped element if is successfull, else returns false
+   */
   pop(): false | T {
     if (this.isFull()) {
       return false;
@@ -36,10 +53,16 @@ export default class Stack<T> {
     }
   }
 
+  /**
+   * Returns the topmost item in stack
+   */
   top(): T {
     return this.stack[this.length - 1];
   }
 
+  /**
+   * Prints the Stack in format stack[{index}]: {item}
+   */
   printStack() {
     this.stack.forEach((item, index) => {
       console.log(`stack[${index}]: ${item}`);

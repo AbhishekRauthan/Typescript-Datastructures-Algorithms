@@ -100,14 +100,23 @@ export default class Sets<T> {
     return difference;
   }
 
-    /**
-   * Returns a boolean value true if set(func calling) is subset of other set 
-   * @param otherSet - Another Set of Type T
-   */
+  /**
+ * Returns a boolean value true if set(func calling) is subset of other set 
+ * @param otherSet - Another Set of Type T
+ */
   isSubsetOf(otherSet: Sets<T>) {
     const firstSet = this.values();
     return firstSet.every((value) => {
       return otherSet.has(value);
+    });
+  }
+
+  /**
+ * Prints the Set in format set[{index}]: {item}
+ */
+  printSet() {
+    this.set.forEach((item, index) => {
+      console.log(`set[${index}]: ${item}`);
     });
   }
 }
