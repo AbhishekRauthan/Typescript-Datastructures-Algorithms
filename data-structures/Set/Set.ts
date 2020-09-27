@@ -1,22 +1,39 @@
 export default class Sets<T> {
   private set: T[];
 
-  has(item: T) {
+  /**
+   * Returns true if set has given item, else returns false
+   * @param item - Item to check if it is set
+   */
+  has(item: T): boolean {
     return (this.set.indexOf(item) !== -1)
   }
 
+  /**
+   * Returns the whole set
+   */
   values() {
     return this.set;
   }
 
+  /**
+   * Adds a given item to set if set doesn't have item already
+   * Returns index of item, else returns false 
+   * @param item - Item to add to set
+   */
   add(item: T) {
     if (!this.has(item)) {
-      const index: number =this.set.push(item);
+      const index: number = this.set.push(item);
       return index
     }
     return false
   }
 
+  /**
+   * Removes a given item from set if set does have item already,
+   * returns index of item, else returns false 
+   * @param item - Item to be removed from set
+   */
   remove(item: T) {
     if (this.has(item)) {
       const index: number = this.set.indexOf(item);
@@ -26,10 +43,18 @@ export default class Sets<T> {
     return false
   }
 
+  /**
+   * Returns the length of set 
+   */
   size() {
     return this.set.length;
   }
 
+  /**
+   * Returns a brand new Set which contain elements from both Sets 
+   * (one which is calling the func and another set which is passed as an argument)
+   * @param otherSet - Another Set of Type T
+   */
   union(otherSet: Sets<T>) {
     const union = new Sets<T>();
     const firstSet = this.values();
@@ -43,6 +68,11 @@ export default class Sets<T> {
     return union;
   }
 
+  /**
+ * Returns a brand new Set which contain elements which are common in both Sets 
+ * (one which is calling the func and another set which is passed as an argument)
+ * @param otherSet - Another Set of Type T
+ */
   intersection(otherSet: Sets<T>) {
     const intersection = new Sets<T>();
     const firstSet = this.values();
@@ -54,6 +84,11 @@ export default class Sets<T> {
     return intersection;
   }
 
+  /**
+ * Returns a brand new Set which contain elements which the other set do not contain 
+ * (one which is calling the func and another set which is passed as an argument)
+ * @param otherSet - Another Set of Type T
+ */
   difference(otherSet: Sets<T>) {
     const difference = new Sets<T>();
     const firstSet = this.values();
@@ -65,7 +100,11 @@ export default class Sets<T> {
     return difference;
   }
 
-  subset(otherSet: Sets<T>) {
+    /**
+   * Returns a boolean value true if set(func calling) is subset of other set 
+   * @param otherSet - Another Set of Type T
+   */
+  isSubsetOf(otherSet: Sets<T>) {
     const firstSet = this.values();
     return firstSet.every((value) => {
       return otherSet.has(value);
