@@ -1,4 +1,4 @@
-export class Stack<T> {
+export default class Stack<T> {
   private stack: T[];
   private length: number;
   private readonly maxLength: number;
@@ -17,23 +17,22 @@ export class Stack<T> {
     return this.length === this.maxLength;
   }
 
-  push(newItem: T): void {
+  push(newItem: T): false | number {
     if (this.isFull()) {
-      throw new Error(`Stack overflow!! Cannot push new Item: ${newItem} into stack`);
+      return false;
     } else {
-      this.stack.push(newItem);
-      console.log(`Item: ${newItem} pushed in stack\nNow stack is:`);
-      this.printStack();
+      const index = this.stack.push(newItem);
+      return index
     }
   }
 
-  pop(): void {
+  pop(): false | T {
     if (this.isFull()) {
-      throw new Error(`Stack underflow!! Cannot pop any item from stack`);
+      return false;
     } else {
       const popedItem = this.stack.pop();
-      console.log(`Item: ${popedItem} poped out of stack\nNow stack is:`);
       this.printStack();
+      return popedItem;
     }
   }
 
@@ -41,7 +40,7 @@ export class Stack<T> {
     return this.stack[this.length - 1];
   }
 
-  printStack(): void {
+  printStack() {
     this.stack.forEach((item, index) => {
       console.log(`stack[${index}]: ${item}`);
     });

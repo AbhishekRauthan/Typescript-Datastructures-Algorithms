@@ -1,4 +1,4 @@
-class Sets<T> {
+export default class Sets<T> {
   private set: T[];
 
   has(item: T) {
@@ -11,8 +11,8 @@ class Sets<T> {
 
   add(item: T) {
     if (!this.has(item)) {
-      this.set.push(item);
-      return true
+      const index: number =this.set.push(item);
+      return index
     }
     return false
   }
@@ -20,8 +20,8 @@ class Sets<T> {
   remove(item: T) {
     if (this.has(item)) {
       const index: number = this.set.indexOf(item);
-      this.set.splice(index, 1);
-      return true
+      this.set = this.set.splice(index, 1);
+      return index
     }
     return false
   }

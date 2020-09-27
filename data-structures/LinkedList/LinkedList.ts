@@ -3,7 +3,7 @@ interface LNode<T> {
   next: LNode<T> | null;
 }
 
-class LinkedList<T> {
+export default class LinkedList<T> {
   private head: LNode<T>;
   private tail: LNode<T>;
   private len: number;

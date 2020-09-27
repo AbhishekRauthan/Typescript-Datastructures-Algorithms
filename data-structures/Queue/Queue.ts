@@ -1,4 +1,4 @@
-class Queue<T> {
+export default class Queue<T> {
   private queue: T[];
   private length: number;
   private maxLenght: number;

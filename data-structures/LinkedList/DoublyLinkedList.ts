@@ -4,7 +4,7 @@ interface DLNode<T> {
   next: DLNode<T> | null;
 }
 
-class DoublyLinkedList<T> {
+export default class DoublyLinkedList<T> {
   private head: DLNode<T>;
   private tail: DLNode<T>;
   private len: number;
