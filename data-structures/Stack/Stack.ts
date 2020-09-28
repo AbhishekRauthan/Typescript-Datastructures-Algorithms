@@ -7,7 +7,7 @@ export default class Stack<T> {
    * Intialize the stack with optional length
    * @param len if undifined maxLength is set to 10
    */
-  constructor(len?: number) {
+  public constructor(len?: number) {
     this.length = 0;
     this.maxLength = len ? len : 10;
     this.stack = new Array<T>(this.maxLength);
@@ -16,14 +16,14 @@ export default class Stack<T> {
   /**
    * Returns true if stack is empty, else returns false
    */
-  isEmpty(): boolean {
+  public isEmpty(): boolean {
     return this.length === 0;
   }
 
   /**
    * Returns true if stack is full, else returns false
    */
-  isFull(): boolean {
+  public isFull(): boolean {
     return this.length === this.maxLength;
   }
 
@@ -31,7 +31,7 @@ export default class Stack<T> {
    * Returns index if pushing item to stack is successfull, else returns false
    * @param newItem item to be pushed of type T
    */
-  push(newItem: T): false | number {
+  public push(newItem: T): false | number {
     if (this.isFull()) {
       return false;
     } else {
@@ -43,7 +43,7 @@ export default class Stack<T> {
   /**
    * Returns the poped element if is successfull, else returns false
    */
-  pop(): false | T {
+  public pop(): false | T {
     if (this.isFull()) {
       return false;
     } else {
@@ -56,14 +56,14 @@ export default class Stack<T> {
   /**
    * Returns the topmost item in stack
    */
-  top(): T {
+  public top(): T {
     return this.stack[this.length - 1];
   }
 
   /**
    * Prints the Stack in format stack[{index}]: {item}
    */
-  printStack() {
+  public printStack() {
     this.stack.forEach((item, index) => {
       console.log(`stack[${index}]: ${item}`);
     });

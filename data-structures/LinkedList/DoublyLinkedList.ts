@@ -9,7 +9,11 @@ export default class DoublyLinkedList<T> {
   private tail: DLNode<T>;
   private len: number;
 
-  constructor(val: T) {
+  /**
+ * Intialize Linked list with a value
+ * @param val Any value of type T
+ */
+  public constructor(val: T) {
     this.head = {
       value: val,
       next: null,
@@ -19,7 +23,11 @@ export default class DoublyLinkedList<T> {
     this.len = 1;
   }
 
-  append(val: T) {
+  /**
+   * Added a Node to end of doubly linked list and makes it the tail of linked list
+   * @param val Any value of type T for last node
+   */
+  public append(val: T) {
     const newNode: DLNode<T> = {
       value: val,
       prev: null,
@@ -31,7 +39,11 @@ export default class DoublyLinkedList<T> {
     this.len++;
   }
 
-  prepend(val: T) {
+  /**
+ * Added a Node to front of doubly linked list and makes it head of linked list 
+ * @param val Any value of T for front Node
+ */
+  public prepend(val: T) {
     const newNode: DLNode<T> = {
       value: val,
       prev: null,
@@ -43,6 +55,10 @@ export default class DoublyLinkedList<T> {
     this.len++;
   }
 
+  /**
+  * A helper function that returns node at a given index 
+  * @param index index of the node
+  */
   gotoIndex(index: number): DLNode<T> {
     let counter = 0;
     let currentNode: DLNode<T> = this.head;
@@ -53,7 +69,10 @@ export default class DoublyLinkedList<T> {
     return currentNode
   }
 
-  printList() {
+  /**
+ * Prints content of Doubly Linked List 
+ */
+  public printList() {
     const array: T[] = [];
     let currentNode = this.head;
     while (currentNode !== null) {
@@ -65,25 +84,39 @@ export default class DoublyLinkedList<T> {
     })
   }
 
-  insert(val: T, index: number) {
+  /**
+ * Inserts a Node at a given index. 
+ * If index <= 0 ; then prepend the Node
+ * if index >= len ; then appemd the Node 
+ * @param val Any value of T for Node
+ * @param index index at which node is to be inserted
+ */
+  public insert(val: T, index: number) {
     if (index >= this.len) {
-      this.append(val)
+      this.append(val);
+    } else if (index <= 0) {
+      this.prepend(val);
+    } else {
+      const newNode: DLNode<T> = {
+        value: val,
+        prev: null,
+        next: null
+      };
+      const leader = this.gotoIndex(index - 1)
+      let holdPointer = leader.next;
+      leader.next = newNode;
+      newNode.prev = leader;
+      newNode.next = holdPointer;
+      holdPointer.prev = newNode;
+      this.len++;
     }
-    const newNode: DLNode<T> = {
-      value: val,
-      prev: null,
-      next: null
-    };
-    const leader = this.gotoIndex(index - 1)
-    let holdPointer = leader.next;
-    leader.next = newNode;
-    newNode.prev = leader;
-    newNode.next = holdPointer;
-    holdPointer.prev = newNode;
-    this.len++;
   }
 
-  remove(index: number) {
+  /**
+ * Removes a Node at a given index
+ * @param index index of the node which is to be removed
+ */
+  public remove(index: number) {
     const leader = this.gotoIndex(index - 1);
     const unwantedNode = leader.next;
     leader.next = unwantedNode.next;

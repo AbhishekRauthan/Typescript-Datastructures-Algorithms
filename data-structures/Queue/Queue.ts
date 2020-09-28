@@ -7,7 +7,7 @@ export default class Queue<T> {
    * Intialize the queue with optional length
    * @param len if undifined maxLength is set to 10
    */
-  constructor(len?: number) {
+  public constructor(len?: number) {
     this.maxLenght = len ? len : 10;
     this.length = 0;
     this.queue = Array<T>(this.maxLenght);
@@ -16,14 +16,14 @@ export default class Queue<T> {
   /**
  * Returns true if queue is empty, else returns false
  */
-  isEmpty(): boolean {
+  public isEmpty(): boolean {
     return this.length === 0;
   }
 
   /**
  * Returns true if queue is full, else returns false
  */
-  isFull(): boolean {
+  public isFull(): boolean {
     return this.length === this.maxLenght;
   }
 
@@ -31,7 +31,7 @@ export default class Queue<T> {
    * Removes the first element from queue and returns it if successfull.
    * else returns false
    */
-  dequeue() {
+  public dequeue() {
     if (this.isEmpty()) {
       return false;
     } else {
@@ -45,7 +45,7 @@ export default class Queue<T> {
    * else returns false
    * @param newItem 
    */
-  enqueue(newItem: T) {
+  public enqueue(newItem: T) {
     if (this.isFull()) {
       return false;
     } else {
@@ -57,7 +57,7 @@ export default class Queue<T> {
   /**
  * Prints the Queue in format queue[{index}]: {item}
  */
-  printQ() {
+  public printQ() {
     this.queue.forEach((item, index) => {
       console.log(`queue[${index}]: ${item}`);
     });
