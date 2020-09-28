@@ -3,42 +3,60 @@ export default class Queue<T> {
   private length: number;
   private maxLenght: number;
 
+  /**
+   * Intialize the queue with optional length
+   * @param len if undifined maxLength is set to 10
+   */
   constructor(len?: number) {
     this.maxLenght = len ? len : 10;
     this.length = 0;
     this.queue = Array<T>(this.maxLenght);
   }
 
+  /**
+ * Returns true if queue is empty, else returns false
+ */
   isEmpty(): boolean {
     return this.length === 0;
   }
 
+  /**
+ * Returns true if queue is full, else returns false
+ */
   isFull(): boolean {
     return this.length === this.maxLenght;
   }
 
+  /**
+   * Removes the first element from queue and returns it if successfull.
+   * else returns false
+   */
   dequeue() {
     if (this.isEmpty()) {
-      throw new Error("Queue underflow!! Cannot remove any element");
+      return false;
     } else {
       const first: T = this.queue.shift();
-      console.log(`Removed element ${first} from queue\nRest of the queue is:`);
-      this.queue.forEach(console.log);
+      return first;
     }
   }
 
+  /**
+   * Adds newItem to queue and returns its index if successfull.
+   * else returns false
+   * @param newItem 
+   */
   enqueue(newItem: T) {
     if (this.isFull()) {
-      throw new Error("Queue overflow!! Cannot add any element");
+      return false;
     } else {
-      this.queue.push(newItem);
-      console.log(`Added element ${newItem} to queue\nNow queue is:`);
-      this.queue.forEach((item, index) => {
-        console.log(`queue[${index}]: ${item}`);
-      });
+      const index = this.queue.push(newItem);
+      return index;
     }
   }
 
+  /**
+ * Prints the Queue in format queue[{index}]: {item}
+ */
   printQ() {
     this.queue.forEach((item, index) => {
       console.log(`queue[${index}]: ${item}`);
