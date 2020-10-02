@@ -12,7 +12,7 @@ export default class Sets<T> {
   /**
    * Returns the whole set
    */
-  public values() {
+  public values(): T[] {
     return this.set;
   }
 
@@ -21,7 +21,7 @@ export default class Sets<T> {
    * Returns index of item, else returns false 
    * @param item - Item to add to set
    */
-  public add(item: T) {
+  public add(item: T): number | false {
     if (!this.has(item)) {
       const index: number = this.set.push(item);
       return index
@@ -34,7 +34,7 @@ export default class Sets<T> {
    * returns index of item, else returns false 
    * @param item - Item to be removed from set
    */
-  public remove(item: T) {
+  public remove(item: T): number | false {
     if (this.has(item)) {
       const index: number = this.set.indexOf(item);
       this.set = this.set.splice(index, 1);
@@ -46,7 +46,7 @@ export default class Sets<T> {
   /**
    * Returns the length of set 
    */
-  public size() {
+  public size(): number {
     return this.set.length;
   }
 
@@ -55,7 +55,7 @@ export default class Sets<T> {
    * (one which is calling the func and another set which is passed as an argument)
    * @param otherSet - Another Set of Type T
    */
-  public union(otherSet: Sets<T>) {
+  public union(otherSet: Sets<T>): Sets<T> {
     const union = new Sets<T>();
     const firstSet = this.values();
     const secondSet = otherSet.values();
@@ -73,7 +73,7 @@ export default class Sets<T> {
  * (one which is calling the func and another set which is passed as an argument)
  * @param otherSet - Another Set of Type T
  */
-  public intersection(otherSet: Sets<T>) {
+  public intersection(otherSet: Sets<T>): Sets<T> {
     const intersection = new Sets<T>();
     const firstSet = this.values();
     firstSet.forEach((e) => {
@@ -89,7 +89,7 @@ export default class Sets<T> {
  * (one which is calling the func and another set which is passed as an argument)
  * @param otherSet - Another Set of Type T
  */
-  public difference(otherSet: Sets<T>) {
+  public difference(otherSet: Sets<T>): Sets<T> {
     const difference = new Sets<T>();
     const firstSet = this.values();
     firstSet.forEach((e) => {
@@ -104,7 +104,7 @@ export default class Sets<T> {
  * Returns a boolean value true if set(func calling) is subset of other set 
  * @param otherSet - Another Set of Type T
  */
-  public isSubsetOf(otherSet: Sets<T>) {
+  public isSubsetOf(otherSet: Sets<T>): boolean {
     const firstSet = this.values();
     return firstSet.every((value) => {
       return otherSet.has(value);
@@ -114,7 +114,7 @@ export default class Sets<T> {
   /**
  * Prints the Set in format set[{index}]: {item}
  */
-  public printSet() {
+  public printSet(): void {
     this.set.forEach((item, index) => {
       console.log(`set[${index}]: ${item}`);
     });

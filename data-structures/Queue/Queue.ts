@@ -31,7 +31,7 @@ export default class Queue<T> {
    * Removes the first element from queue and returns it if successfull.
    * else returns false
    */
-  public dequeue() {
+  public dequeue(): T | false {
     if (this.isEmpty()) {
       return false;
     } else {
@@ -45,7 +45,7 @@ export default class Queue<T> {
    * else returns false
    * @param newItem 
    */
-  public enqueue(newItem: T) {
+  public enqueue(newItem: T): number | false {
     if (this.isFull()) {
       return false;
     } else {
@@ -57,7 +57,7 @@ export default class Queue<T> {
   /**
  * Prints the Queue in format queue[{index}]: {item}
  */
-  public printQ() {
+  public printQ(): void {
     this.queue.forEach((item, index) => {
       console.log(`queue[${index}]: ${item}`);
     });

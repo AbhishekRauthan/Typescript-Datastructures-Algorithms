@@ -4,7 +4,7 @@
  * @param searchArray array to be searched in
  * @param searchItem item to be searched
  */
-export const LinearSearch = (searchArray: number[], searchItem: number) => {
+export const LinearSearch = (searchArray: number[], searchItem: number): number | false => {
   // simple one line implementation using built-in array functions
   // return searchArray.indexOf(searchItem) !== -1
   for (let i = 0; i < searchArray.length; i++) {
@@ -21,7 +21,7 @@ export const LinearSearch = (searchArray: number[], searchItem: number) => {
  * @param searchArray array to be searched in
  * @param searchItem item to be searched
  */
-export const BinarySearch = (searchArray: number[], searchItem: number) => {
+export const BinarySearch = (searchArray: number[], searchItem: number): number | false => {
   let start = 0;
   let end = searchArray.length - 1;
 

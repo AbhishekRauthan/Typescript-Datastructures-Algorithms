@@ -63,7 +63,7 @@ export default class Stack<T> {
   /**
    * Prints the Stack in format stack[{index}]: {item}
    */
-  public printStack() {
+  public printStack(): void {
     this.stack.forEach((item, index) => {
       console.log(`stack[${index}]: ${item}`);
     });
