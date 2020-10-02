@@ -5,6 +5,7 @@
  * @param searchItem item to be searched
  */
 export const LinearSearch = (searchArray: number[], searchItem: number) => {
+  // simple one line implementation using built-in array functions
   // return searchArray.indexOf(searchItem) !== -1
   for (let i = 0; i < searchArray.length; i++) {
     if (searchArray[i] === searchItem) {
