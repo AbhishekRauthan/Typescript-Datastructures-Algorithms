@@ -1,5 +1,5 @@
 /**
- * Implementation of Linear Search in number Array; returns index of item if item is in array else returns false
+ * Implementation of Linear Search for number Array; returns index of item if item is in array else returns false
  * Time Complexity = O(n)
  * @param searchArray array to be searched in
  * @param searchItem item to be searched
@@ -7,6 +7,7 @@
 export const LinearSearch = (searchArray: number[], searchItem: number): number | false => {
   // simple one line implementation using built-in array functions
   // return searchArray.indexOf(searchItem) !== -1
+  // above is an one line implementation of linear search that returns a boolean value
   for (let i = 0; i < searchArray.length; i++) {
     if (searchArray[i] === searchItem) {
       return i;
@@ -16,7 +17,7 @@ export const LinearSearch = (searchArray: number[], searchItem: number): number 
 }
 
 /**
- * Implementation of Binary Search in number Array; returns index of item if item is in array else returns false
+ * Implementation of Binary Search for number Array; returns index of item if item is in array else returns false
  * Time Complexity = O(log(n))
  * @param searchArray array to be searched in
  * @param searchItem item to be searched
