@@ -28,8 +28,8 @@ export default class Stack<T> {
   }
 
   /**
-   * Returns index if pushing item to stack is successfull, else returns false
-   * @param newItem item to be pushed of type T
+   * * Returns index if pushing item to stack is successfull, else returns false
+   * * @param newItem item to be pushed of type T
    */
   public push(newItem: T): false | number {
     if (this.isFull()) {
@@ -48,7 +48,6 @@ export default class Stack<T> {
       return false;
     } else {
       const popedItem = this.stack.pop();
-      this.printStack();
       return popedItem;
     }
   }
