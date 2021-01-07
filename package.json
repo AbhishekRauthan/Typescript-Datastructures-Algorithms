@@ -17,7 +17,7 @@
     "url": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms/issues"
   },
   "homepage": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms#readme",
-  "dependencies": {
+  "peerDependencies": {
     "typescript": "^4.0.2"
   }
 }
