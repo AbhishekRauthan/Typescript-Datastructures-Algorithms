@@ -1,3 +1,8 @@
+/**
+ * set is a data structure that can store any number of unique values in any order you so wish.
+ * 
+ * Set’s are different from arrays in the sense that they only allow non-repeated, unique values within them
+ */
 export default class Sets<T> {
   private set: T[];
 

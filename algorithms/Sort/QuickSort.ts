@@ -1,8 +1,9 @@
 /**
- * 
- * @param arr 
- * @param start 
- * @param end 
+ * this functions perform the partition required by quicksort  
+ * @param arr number array that is to be sorted
+ * @param start start index
+ * @param end end index
+ * @returns pivot index
  */
 const partition = (arr: number[], start: number, end: number) => {
   // Taking the last element as the pivot
@@ -25,6 +26,8 @@ const partition = (arr: number[], start: number, end: number) => {
 
 /**
  * Impleamentation of Quick Sort for number Array
+ * Time Complexity: Best -> O(nlog(n)); Average -> O(nlog(n)); Worst -> O(n^2)
+ * 
  * @param arr array that is to be sorted
  * @returns sorted array
  */
@@ -36,7 +39,6 @@ export const QuickSort = (arr: number[]) => {
   stack.push(0);
   stack.push(arr.length - 1);
 
-  // There isn't an explicit peek() function
   // The loop repeats as long as we have unsorted subarrays
   while (stack[stack.length - 1] >= 0) {
 
@@ -60,6 +62,6 @@ export const QuickSort = (arr: number[]) => {
       stack.push(end);
     }
   }
-
+  // returns the sorted array
   return arr;
 }
