@@ -3,6 +3,11 @@ interface LNode<T> {
   next: LNode<T> | null;
 }
 
+/**
+ *  Linked List is a linear data structure, in which the elements are not stored at contiguous memory locations.
+ * 
+ * Linked List consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+ */
 export default class LinkedList<T> {
   private head: LNode<T>;
   private tail: LNode<T>;
