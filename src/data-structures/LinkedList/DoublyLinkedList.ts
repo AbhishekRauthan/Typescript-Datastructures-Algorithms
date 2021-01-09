@@ -73,7 +73,7 @@ export default class DoublyLinkedList<T> {
   }
 
   /**
- * Prints content of Doubly Linked List 
+ * @returns content of Doubly Linked List as an array 
  */
   public printList() {
     const array: T[] = [];
@@ -82,9 +82,8 @@ export default class DoublyLinkedList<T> {
       array.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    array.forEach((node: T) => {
-      console.log(node)
-    })
+
+    return array;
   }
 
   /**

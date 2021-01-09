@@ -23,3 +23,10 @@ ds-ts-algo is a typescript written package that allow users to use different pre
     - InsertionSort
     - SelectionSort
     - BubbleSort
+
+## Usage:
+the 
+
+```typescript
+
+ ```

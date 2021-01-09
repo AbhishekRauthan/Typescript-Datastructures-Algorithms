@@ -1,8 +1,9 @@
 {
   "name": "ts-ds-algo",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "description": "ds-ts-algo is a typescript written package that allow users to use different pre-made data structures and algorithms in their javascript/typescript projects.",
+  "main": "./lib",
+  "types": "./lib",
   "scripts": {
     "build": "tsc -p ."
   },
@@ -10,14 +11,18 @@
     "type": "git",
     "url": "git+https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms.git"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "typescript",
+    "data structures",
+    "algorithms"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms/issues"
   },
   "homepage": "https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms#readme",
-  "type": "module",
   "devDependencies": {
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"

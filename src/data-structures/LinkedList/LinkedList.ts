@@ -70,7 +70,7 @@ export default class LinkedList<T> {
   }
 
   /**
-   * Prints content of Linked List 
+   * @returns content of Linked List as an array 
    */
   public printList() {
     const array: T[] = [];
@@ -79,9 +79,8 @@ export default class LinkedList<T> {
       array.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    array.forEach((node: T) => {
-      console.log(node)
-    })
+
+    return array;
   }
 
   /**

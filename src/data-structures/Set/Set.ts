@@ -119,9 +119,7 @@ export default class Sets<T> {
   /**
  * Prints the Set in format set[{index}]: {item}
  */
-  public printSet(): void {
-    this.set.forEach((item, index) => {
-      console.log(`set[${index}]: ${item}`);
-    });
+  public getSet(): T[] {
+    return this.set;
   }
 }

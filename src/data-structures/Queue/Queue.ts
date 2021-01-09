@@ -60,11 +60,10 @@ export default class Queue<T> {
   }
 
   /**
- * Prints the Queue in format queue[{index}]: {item}
+ * @returns the Queue
  */
-  public printQ(): void {
-    this.queue.forEach((item, index) => {
-      console.log(`queue[${index}]: ${item}`);
-    });
+  public getQ():T[] {
+    return this.queue;
   }
+
 }
