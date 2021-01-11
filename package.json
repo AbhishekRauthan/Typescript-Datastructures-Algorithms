@@ -1,9 +1,7 @@
 {
   "name": "ts-ds-algo",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "ds-ts-algo is a typescript written package that allow users to use different pre-made data structures and algorithms in their javascript/typescript projects.",
-  "main": "lib",
-  "types": "lib",
   "scripts": {
     "build": "tsc -p ."
   },
@@ -28,7 +26,7 @@
     "typescript": "^4.1.3"
   },
   "directories": {
-    "lib": "lib"
+    "./": "lib"
   },
   "dependencies": {}
 }
