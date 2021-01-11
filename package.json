@@ -5,6 +5,8 @@
   "scripts": {
     "build": "tsc -p ."
   },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AbhishekRauthan/Typescript-Datastructures-Algorithms.git"
