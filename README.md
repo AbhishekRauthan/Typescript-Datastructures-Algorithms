@@ -1,6 +1,6 @@
 # ds-ts-algo
 
-ds-ts-algo is a typescript written utility package that allow users to use different pre-made data structures and algorithms in their javascript/typescript projects.
+ds-ts-algo is a typescript written utility package that allows users to use different pre-made data structures and algorithms in their javascript/typescript projects.
 
 <br />
 
