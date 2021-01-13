@@ -35,12 +35,18 @@ ds-ts-algo is a typescript written utility package that allows users to use diff
 import { searchAlgos } from "ds-ts-algo"; // es modules
 const { searchAlgos } = require("ds-ts-algo"); //commanjs
 
+const {/* Destructure the search Algorithms*/} = searchAlgos; 
+
 //use this for acessing sort algorithms
 import { sortAlgos } from "ds-ts-algo"; // es modules
 const { sortAlgos } = require("ds-ts-algo"); //commanjs
 
+const {/* Destructure the sort Algorithms*/} = sortAlgos; 
+
 //use this for acessing data structures
 import { dataStructures } from "ds-ts-algo"; // es modules
 const { dataStructures } = require("ds-ts-algo"); //commanjs
+
+const {/* Destructure the data Structures*/} = dataStructures; 
 
 ```
