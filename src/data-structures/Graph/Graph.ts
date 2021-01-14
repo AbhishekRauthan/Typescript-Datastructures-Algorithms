@@ -73,6 +73,14 @@ export default class Graph<K> {
     return false;
   }
 
+  /**
+   * In this algorithm, one starting vertex is given, and when an adjacent vertex is found,
+   * it moves to that adjacent vertex first and tries to traverse in the same manner.
+   * 
+   * TODO: redo dfs for correct behavior
+   * @param start starting Node
+   * @param find final Node 
+   */
   public dfs(start: K, find: K, visited = new Set()) {
     visited.add(start);
     const result: K[] = [start];
@@ -89,24 +97,4 @@ export default class Graph<K> {
     }
     return false
   }
-}
-const g = new Graph<number>();
-
-g.addNode(1);
-g.addNode(2);
-g.addNode(3);
-g.addNode(4);
-g.addNode(5);
-g.addNode(6);
-
-g.addEdge(1, 5);
-g.addEdge(1, 3);
-g.addEdge(2, 3);
-g.addEdge(3, 1);
-g.addEdge(4, 2);
-g.addEdge(5, 3);
-g.addEdge(5, 4);
-g.addEdge(6, 6);
-
-
-console.log(g.dfs(1, 4));
+};
