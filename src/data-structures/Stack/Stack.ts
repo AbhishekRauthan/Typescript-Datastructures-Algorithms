@@ -9,6 +9,10 @@ export default class Stack<T> {
   private readonly maxLength: number;
 
   /**
+   * Stack is a linear data structure which follows a particular order in which the operations are performed. 
+   * 
+   * The order may be LIFO(Last In First Out) or FILO(First In Last Out).
+   * @constructor
    * Intialize the stack with optional length
    * @param len if undifined maxLength is set to 10
    */

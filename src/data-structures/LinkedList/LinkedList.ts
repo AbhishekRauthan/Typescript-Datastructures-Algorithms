@@ -14,6 +14,11 @@ export default class LinkedList<T> {
   private len: number;
 
   /**
+   *  Linked List is a linear data structure, in which the elements are not stored at contiguous memory locations.
+   * 
+   * Linked List consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+   * 
+   * @constructor
    * Intialize Linked list with a value
    * @param val Any value of type T
    */

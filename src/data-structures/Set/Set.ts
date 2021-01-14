@@ -7,6 +7,9 @@ export default class Sets<T> {
   private set: T[];
 
   /**
+   * set is a data structure that can store any number of unique values in any order you so wish.
+   * 
+   * Set’s are different from arrays in the sense that they only allow non-repeated, unique values within them
    * Returns true if set has given item, else returns false
    * @param item - Item to check if it is set
    */
