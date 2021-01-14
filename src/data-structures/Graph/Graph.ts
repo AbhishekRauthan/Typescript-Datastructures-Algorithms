@@ -1,3 +1,8 @@
+/**
+ * A Graph is a non-linear data structure consisting of nodes and edges. 
+ * 
+ * The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
+ */
 export default class Graph<K> {
   public adList: Map<K, K[]>
 
@@ -11,11 +16,10 @@ export default class Graph<K> {
 
   public addEdge(origin: K, destination: K) {
     this.adList.get(origin).push(destination);
-    this.adList.get(destination).push(origin);
   }
 
   public bfs(start: K, find: K) {
-    const visited = new Set();
+    const visited = new Set<K>();
     const queue = [start]
     while (queue.length > 0) {
       const origin = queue.shift(); // mutates the queue
