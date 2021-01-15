@@ -21,7 +21,7 @@ export default class Graph<K> {
   /**
    * @property returns Adjacency List
   */
-  public get adlist() {
+  public getAdlist() {
     return this.adList;
   }
 
@@ -81,20 +81,25 @@ export default class Graph<K> {
    * @param start starting Node
    * @param find final Node 
    */
-  public dfs(start: K, find: K, visited = new Set()) {
-    visited.add(start);
-    const result: K[] = [start];
-    const destinations = this.adList.get(start);
-    for (const destination of destinations) {
-      if (destination === find) {
-        result.push(destination);
-        return true;
-      }
-      if (!visited.has(destination)) {
-        result.push(destination);
-        this.dfs(destination, find, visited);
-      }
-    }
-    return false
-  }
+//   public dfs(start: K, find: K, visited = new Set()) {
+//     visited.add(start);
+//     const result: K[] = [start];
+//     const destinations = this.adList.get(start);
+//     for (const destination of destinations) {
+//       console.log(destination);
+//       if (destination === find) {
+//         console.log(destination, "inside find");
+
+//         result.push(destination);
+//         return result;
+//       }
+//       if (!visited.has(destination)) {
+//         console.log(destination, "inside !visited");
+
+//         result.push(destination);
+//         this.dfs(destination, find, visited);
+//       }
+//     }
+//     return false
+//   }
 };
