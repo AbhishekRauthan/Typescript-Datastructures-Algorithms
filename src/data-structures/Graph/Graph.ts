@@ -2,6 +2,8 @@
  * A Graph is a non-linear data structure consisting of nodes and edges. 
  * 
  * The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
+ * 
+ * ! Important: This is an impleamentation of directed graph 
  */
 export default class Graph<K> {
   private adList: Map<K, K[]>
@@ -11,10 +13,12 @@ export default class Graph<K> {
  * 
  * The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
  * 
+ * ! Important: This is an impleamentation of directed graph 
+ * 
  * @constructor 
  * Initialize graph with a new Map(Adjacency List) of type K,K[]
  */
-  constructor() {
+  public constructor() {
     this.adList = new Map<K, K[]>()
   }
 
@@ -81,25 +85,7 @@ export default class Graph<K> {
    * @param start starting Node
    * @param find final Node 
    */
-//   public dfs(start: K, find: K, visited = new Set()) {
-//     visited.add(start);
-//     const result: K[] = [start];
-//     const destinations = this.adList.get(start);
-//     for (const destination of destinations) {
-//       console.log(destination);
-//       if (destination === find) {
-//         console.log(destination, "inside find");
+  public dfs(start: K, find: K) {
 
-//         result.push(destination);
-//         return result;
-//       }
-//       if (!visited.has(destination)) {
-//         console.log(destination, "inside !visited");
-
-//         result.push(destination);
-//         this.dfs(destination, find, visited);
-//       }
-//     }
-//     return false
-//   }
+  }
 };
