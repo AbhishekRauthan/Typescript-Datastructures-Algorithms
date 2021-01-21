@@ -1,6 +1,6 @@
-type VALUE<K> = [string, K]
+type VALUE<K> = { key: string, value: K }
 
-class HashTable<K> {
+export default class HashTable<K> {
   private data: VALUE<K>[][];
   public constructor(size: number) {
     this.data = new Array<VALUE<K>[]>(size);
@@ -21,17 +21,30 @@ class HashTable<K> {
     if (!this.data[address]) {
       this.data[address] = [];
     }
-    this.data[address].push([key, value])
+    this.data[address].push({ key, value })
+    // console.log(this.data[address]);
   }
 
   public get(key: string) {
     let address = this._hash(key);
     const currentBucket = this.data[address];
     for (const bucket of currentBucket) {
-      if (bucket[0] === key) {
-        return bucket[1]
+      if (bucket.key === key) {
+        return bucket.value
       }
     }
     return false;
+  }
+
+  public keys() {
+    const keys: string[] = [];
+    for (const bucket of this.data) {
+      if (bucket) {
+        for (const ind of bucket) {
+          keys.push(ind.key);
+        }
+      }
+    }
+    return keys;
   }
 }
