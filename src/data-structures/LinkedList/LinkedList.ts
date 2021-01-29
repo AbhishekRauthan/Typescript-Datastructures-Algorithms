@@ -123,4 +123,12 @@ export default class LinkedList<T> {
     leader.next = unwantedNode.next;
     this.len--;
   }
+
+  public get next(): LNode<T> | null {
+    return this.next;
+  }
+
+  public get value(): T {
+    return this.value;
+  }
 }
