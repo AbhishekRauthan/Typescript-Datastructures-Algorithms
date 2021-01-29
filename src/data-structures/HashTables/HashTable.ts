@@ -1,4 +1,5 @@
-type VALUE<K> = { key: string, value: K }
+import LinkedList from "../LinkedList/LinkedList";
+
 
 /**
  * A hash table is a data structure that is used to store keys/value pairs.
@@ -8,7 +9,8 @@ type VALUE<K> = { key: string, value: K }
  * Need to specify the type for value in typescript
  */
 export default class HashTable<K> {
-  private data: VALUE<K>[][];
+  private data: LinkedList<K>[];
+  private keys: Set<string>;
 
   /**
  * A hash table is a data structure that is used to store keys/value pairs.
@@ -20,7 +22,8 @@ export default class HashTable<K> {
  * @param size numeric value for initializing hash table
  */
   public constructor(size: number) {
-    this.data = new Array<VALUE<K>[]>(size);
+    this.keys = new Set<string>();
+    this.data = new Array<LinkedList<K>>(size);
   }
 
   /**
@@ -47,40 +50,32 @@ export default class HashTable<K> {
   public set(key: string, value: K) {
     let address = this._hash(key);
     if (!this.data[address]) {
-      this.data[address] = [];
+      this.data[address] = new LinkedList<K>(value)
+    } else {
+      this.data[address].append(value);
     }
-    this.data[address].push({ key, value });
+    this.keys.add(key);
   }
 
   /**
    * get the value of the key/value pair in hash table
    * @param key of type string; used to get value from hash table 
    * 
-   * @returns value of type K if found else false
+   * @returns K[] or false  
    */
   public get(key: string) {
     let address = this._hash(key);
-    const currentBucket = this.data[address];
-    for (const bucket of currentBucket) {
-      if (bucket.key === key) {
-        return bucket.value
-      }
+    if (this.data[address]) {
+      return this.data[address].printList();
     }
+
     return false;
   }
 
   /**
    * @returns all the keys of hash table as a string array
    */
-  public keys() {
-    const keys: string[] = [];
-    for (const bucket of this.data) {
-      if (bucket) {
-        for (const ind of bucket) {
-          keys.push(ind.key);
-        }
-      }
-    }
-    return keys;
+  public allKeys() {
+    return this.keys;
   }
 }
