@@ -124,10 +124,18 @@ export default class LinkedList<T> {
     this.len--;
   }
 
+  /**
+   * @property next of Linked List
+   * @returns next Node if it exists or null if it doesn't
+   */
   public get next(): LNode<T> | null {
     return this.next;
   }
 
+  /**
+   * @property value of Linked List
+   * @returns next value of current Node
+   */
   public get value(): T {
     return this.value;
   }
