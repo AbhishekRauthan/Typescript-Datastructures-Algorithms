@@ -45,8 +45,8 @@ export default class Queue<T> {
     if (this.isEmpty()) {
       return false;
     } else {
-      const first: T = this.queue.shift();
-      return first;
+      const first = this.queue.shift();
+      return first!;
     }
   }
 

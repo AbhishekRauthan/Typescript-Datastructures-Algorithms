@@ -6,6 +6,10 @@
 export default class Sets<T> {
   private set: T[];
 
+  constructor() {
+    this.set = Array<T>();
+  }
+
   /**
    * set is a data structure that can store any number of unique values in any order you so wish.
    * 

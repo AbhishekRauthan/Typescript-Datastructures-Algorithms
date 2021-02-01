@@ -1,6 +1,6 @@
 interface DLNode<T> {
   value: T,
-  prev: DLNode<T> | null
+  prev: DLNode<T> | null,
   next: DLNode<T> | null;
 }
 
@@ -8,8 +8,8 @@ interface DLNode<T> {
  * Doubly Linked List is a data structure that is simillar to Linked List but contains an extra pointer, typically called previous pointer, together with next pointer and data which are there in singly linked list.
  */
 export default class DoublyLinkedList<T> {
-  private head: DLNode<T>;
-  private tail: DLNode<T>;
+  private head: DLNode<T> | null;
+  private tail: DLNode<T> | null;
   private len: number;
 
   /**
@@ -40,7 +40,7 @@ export default class DoublyLinkedList<T> {
       next: null
     }
     newNode.prev = this.tail
-    this.tail.next = newNode;
+    this.tail!.next = newNode;
     this.tail = newNode;
     this.len++;
   }
@@ -55,7 +55,7 @@ export default class DoublyLinkedList<T> {
       prev: null,
       next: null
     }
-    this.head.prev = newNode
+    this.head!.prev = newNode
     newNode.next = this.head;
     this.head = newNode;
     this.len++;
@@ -67,12 +67,12 @@ export default class DoublyLinkedList<T> {
   */
   gotoIndex(index: number): DLNode<T> {
     let counter = 0;
-    let currentNode: DLNode<T> = this.head;
+    let currentNode = this.head;
     while (counter !== index) {
-      currentNode = currentNode.next;
+      currentNode = currentNode!.next;
       counter++;
     }
-    return currentNode
+    return currentNode!
   }
 
   /**
@@ -112,7 +112,7 @@ export default class DoublyLinkedList<T> {
       leader.next = newNode;
       newNode.prev = leader;
       newNode.next = holdPointer;
-      holdPointer.prev = newNode;
+      holdPointer!.prev = newNode;
       this.len++;
     }
   }
@@ -124,7 +124,7 @@ export default class DoublyLinkedList<T> {
   public remove(index: number) {
     const leader = this.gotoIndex(index - 1);
     const unwantedNode = leader.next;
-    leader.next = unwantedNode.next;
+    leader.next = unwantedNode!.next;
     this.len--;
   }
 }

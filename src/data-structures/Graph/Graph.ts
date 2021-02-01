@@ -43,7 +43,7 @@ export default class Graph<K> {
    * @param destination destination Node
    */
   public addEdge(origin: K, destination: K) {
-    this.adList.get(origin).push(destination);
+    this.adList.get(origin)!.push(destination)
   }
 
   /**
@@ -60,8 +60,8 @@ export default class Graph<K> {
     const queue = [start]
     while (queue.length > 0) {
       const origin = queue.shift(); // mutates the queue
-      const destinations = this.adList.get(origin);
-      for (const destination of destinations) {
+      const destinations = this.adList.get(origin!);
+      for (const destination of destinations!) {
         if (destination === find) {
           result.push(destination);
           return result

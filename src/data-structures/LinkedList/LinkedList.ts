@@ -9,8 +9,8 @@ interface LNode<T> {
  * Linked List consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
  */
 export default class LinkedList<T> {
-  private head: LNode<T>;
-  private tail: LNode<T>;
+  private head: LNode<T> | null;
+  private tail: LNode<T> | null;
   private len: number;
 
   /**
@@ -41,7 +41,7 @@ export default class LinkedList<T> {
       next: null
     }
 
-    this.tail.next = newNode;
+    this.tail!.next = newNode;
     this.tail = newNode;
     this.len++;
   }
@@ -66,12 +66,12 @@ export default class LinkedList<T> {
    */
   gotoIndex(index: number): LNode<T> {
     let counter = 0;
-    let currentNode: LNode<T> = this.head;
+    let currentNode = this.head;
     while (counter !== index) {
-      currentNode = currentNode.next;
+      currentNode = currentNode!.next;
       counter++;
     }
-    return currentNode
+    return currentNode!
   }
 
   /**
@@ -120,7 +120,7 @@ export default class LinkedList<T> {
   public remove(index: number) {
     const leader = this.gotoIndex(index - 1);
     const unwantedNode = leader.next;
-    leader.next = unwantedNode.next;
+    leader.next = unwantedNode!.next;
     this.len--;
   }
 

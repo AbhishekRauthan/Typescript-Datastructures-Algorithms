@@ -57,7 +57,7 @@ export default class Stack<T> {
       return false;
     } else {
       const popedItem = this.stack.pop();
-      return popedItem;
+      return popedItem!;
     }
   }
 
