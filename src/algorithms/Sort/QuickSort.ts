@@ -48,20 +48,20 @@ export const QuickSort = (arr: number[]) => {
     let end = stack.pop();
     let start = stack.pop();
 
-    let pivotIndex = partition(arr, start, end);
+    let pivotIndex = partition(arr, start!, end!);
 
     // If there are unsorted elements to the "left" of the pivot,
     // we add that subarray to the stack so we can sort it later
-    if (pivotIndex - 1 > start) {
-      stack.push(start);
+    if (pivotIndex - 1 > start!) {
+      stack.push(start!);
       stack.push(pivotIndex - 1);
     }
 
     // If there are unsorted elements to the "right" of the pivot,
     // we add that subarray to the stack so we can sort it later
-    if (pivotIndex + 1 < end) {
+    if (pivotIndex + 1 < end!) {
       stack.push(pivotIndex + 1);
-      stack.push(end);
+      stack.push(end!);
     }
   }
   // returns the sorted array
