@@ -1,3 +1,17 @@
-export * as searchAlgo from "./algorithms/Search/";
-export * as sortAlgo from "./algorithms/Sort";
-export * as dataStructures  from "./data-structures";
+export { BinarySearch, LinearSearch } from "./algorithms/Search/";
+export {
+  BubbleSort,
+  HeapSort,
+  InsertionSort,
+  QuickSort,
+  SelectionSort,
+} from "./algorithms/Sort";
+export {
+  DoublyLinkedList,
+  Graph,
+  HashTables,
+  LinkedList,
+  Queue,
+  Set,
+  Stack,
+} from "./data-structures";

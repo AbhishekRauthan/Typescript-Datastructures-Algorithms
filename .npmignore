@@ -1,8 +1,1 @@
-node_modules
 src
-.gitignore
-package.json
-package-lock.json
-.git
-tsconfig.json
-README.md     
