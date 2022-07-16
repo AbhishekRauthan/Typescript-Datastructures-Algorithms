@@ -6,5 +6,5 @@
     "outDir": "./lib",
     "strict": true
   },
-  "exclude": ["./src/types.ts", "test.ts", "./lib", "node_modules"]
+  "exclude": ["./src/types.ts", "./test", "./lib", "node_modules"]
 }
