@@ -1,6 +1,6 @@
 /**
- * Stack is a linear data structure which follows a particular order in which the operations are performed. 
- * 
+ * Stack is a linear data structure which follows a particular order in which the operations are performed.
+ *
  * The order may be LIFO(Last In First Out) or FILO(First In Last Out).
  */
 export default class Stack<T> {
@@ -9,8 +9,8 @@ export default class Stack<T> {
   private readonly maxLength: number;
 
   /**
-   * Stack is a linear data structure which follows a particular order in which the operations are performed. 
-   * 
+   * Stack is a linear data structure which follows a particular order in which the operations are performed.
+   *
    * The order may be LIFO(Last In First Out) or FILO(First In Last Out).
    * @constructor
    * Intialize the stack with optional length
@@ -19,7 +19,7 @@ export default class Stack<T> {
   public constructor(len?: number) {
     this.length = 0;
     this.maxLength = len ? len : 10;
-    this.stack = new Array<T>(this.maxLength);
+    this.stack = new Array<T>();
   }
 
   /**
@@ -45,7 +45,8 @@ export default class Stack<T> {
       return false;
     } else {
       const index = this.stack.push(newItem);
-      return index
+      this.length++;
+      return index;
     }
   }
 
@@ -53,10 +54,12 @@ export default class Stack<T> {
    * Returns the poped element if is successfull, else returns false
    */
   public pop(): false | T {
-    if (this.isFull()) {
+    if (this.isEmpty()) {
       return false;
     } else {
       const popedItem = this.stack.pop();
+      this.length--;
+
       return popedItem!;
     }
   }
